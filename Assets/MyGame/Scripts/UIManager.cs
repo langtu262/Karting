@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,15 +16,20 @@ public class UIManager : MonoBehaviour
     //[SerializeField] private Text MyText; // phai su dung lagecy Text
     void Start()
     {
-        
+        StartCoroutine(UpdateCar());
     }
 
+
     // Update is called once per frame
-    void Update()
+    IEnumerator UpdateCar()
     {
-        m_TextPosition.text = GameManager.Instace.positionCar.ToString();
-        m_TextLaps.text = GameManager.Instace.labsCar.ToString();
-        m_TextCoin.text = GameManager.Instace.coinCar.ToString();
-        m_TextKm.text = GameManager.Instace.km.ToString();
-    }
+        while (true)
+        {
+            m_TextPosition.text = GameManager.Instace.positionCar.ToString();
+            m_TextLaps.text = GameManager.Instace.labsCar.ToString();
+            m_TextCoin.text = GameManager.Instace.coinCar.ToString();
+            m_TextKm.text = GameManager.Instace.km.ToString();
+            yield return new WaitForSeconds(0.2f);
+        }
+    }   
 }
