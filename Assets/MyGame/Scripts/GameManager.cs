@@ -29,4 +29,8 @@ public class GameManager : MonoBehaviour
     {
         coinCar += 5;
     }
+    public void SetlabsCar()
+    {
+        labsCar += 1;
+    }
 }
